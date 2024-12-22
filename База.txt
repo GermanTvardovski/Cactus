@@ -1,0 +1,153 @@
+CREATE DATABASE KAKTUS
+USE [KAKTUS]
+GO
+/****** Object:  Table [dbo].[Cactus]    Script Date: 13.09.2024 8:02:09 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Cactus](
+	[Cactus_ID] [int] IDENTITY(1,1) NOT NULL,
+	[Vid] [nvarchar](50) NULL,
+	[Proishozhdenie] [nvarchar](50) NULL,
+	[Vozrast] [int] NULL,
+	[Stoimost] [int] NULL,
+	[Instrukciya] [nvarchar](50) NULL,
+ CONSTRAINT [PK_Cactus] PRIMARY KEY CLUSTERED 
+(
+	[Cactus_ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Vistavka]    Script Date: 13.09.2024 8:02:09 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Vistavka](
+	[Vistavka_ID] [int] IDENTITY(1,1) NOT NULL,
+	[Data] [date] NULL,
+	[Mesto] [nvarchar](50) NULL,
+	[Nagrada] [nvarchar](50) NULL,
+	[Koment] [nvarchar](50) NULL,
+ CONSTRAINT [PK_Vistavka] PRIMARY KEY CLUSTERED 
+(
+	[Vistavka_ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Vistavka_Caktusov]    Script Date: 13.09.2024 8:02:09 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Vistavka_Caktusov](
+	[Id_Vistavka_Cactusov] [int] IDENTITY(1,1) NOT NULL,
+	[ID_Cactus] [int] NOT NULL,
+	[ID_Vistavka] [int] NOT NULL,
+ CONSTRAINT [PK_Vistavka_Caktusov] PRIMARY KEY CLUSTERED 
+(
+	[Id_Vistavka_Cactusov] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Cactus] ON 
+GO
+INSERT [dbo].[Cactus] ([Cactus_ID], [Vid], [Proishozhdenie], [Vozrast], [Stoimost], [Instrukciya]) VALUES (2, N'Astrophytum asterias', N'Мексика', 5, 1500, N'Полив раз в 10 дней, любит солнце')
+GO
+INSERT [dbo].[Cactus] ([Cactus_ID], [Vid], [Proishozhdenie], [Vozrast], [Stoimost], [Instrukciya]) VALUES (3, N'Echinopsis pachanoi', N'Перу', 8, 2000, N'Регулярный полив, держать на свету')
+GO
+INSERT [dbo].[Cactus] ([Cactus_ID], [Vid], [Proishozhdenie], [Vozrast], [Stoimost], [Instrukciya]) VALUES (4, N'Lophophora williamsii', N'США', 3, 3000, N'Минимум воды зимой, много света')
+GO
+INSERT [dbo].[Cactus] ([Cactus_ID], [Vid], [Proishozhdenie], [Vozrast], [Stoimost], [Instrukciya]) VALUES (5, N'Ariocarpus retusus', N'Мексика', 15, 5000, N'Редкий полив, любит сухой климат')
+GO
+INSERT [dbo].[Cactus] ([Cactus_ID], [Vid], [Proishozhdenie], [Vozrast], [Stoimost], [Instrukciya]) VALUES (6, N'Mammillaria hahniana', N'Мексика', 10, 1800, N'Поливать умеренно, много света')
+GO
+INSERT [dbo].[Cactus] ([Cactus_ID], [Vid], [Proishozhdenie], [Vozrast], [Stoimost], [Instrukciya]) VALUES (7, N'Gymnocalycium mihanovichii', N'Аргентина', 4, 2200, N'Неприхотлив, полив раз в 7 дней')
+GO
+INSERT [dbo].[Cactus] ([Cactus_ID], [Vid], [Proishozhdenie], [Vozrast], [Stoimost], [Instrukciya]) VALUES (8, N'Opuntia microdasys', N'Мексика', 6, 900, N'Минимум воды, предпочитает сухой климат')
+GO
+INSERT [dbo].[Cactus] ([Cactus_ID], [Vid], [Proishozhdenie], [Vozrast], [Stoimost], [Instrukciya]) VALUES (9, N'Parodia magnifica', N'Бразилия', 7, 1100, N'Умеренный полив, хороший дренаж почвы')
+GO
+INSERT [dbo].[Cactus] ([Cactus_ID], [Vid], [Proishozhdenie], [Vozrast], [Stoimost], [Instrukciya]) VALUES (10, N'Rebutia heliosa', N'Боливия', 12, 2400, N'Редкий полив, любит солнце')
+GO
+INSERT [dbo].[Cactus] ([Cactus_ID], [Vid], [Proishozhdenie], [Vozrast], [Stoimost], [Instrukciya]) VALUES (15, N'hghcg', N' nbnb', 9999, 99, N'mvhm')
+GO
+INSERT [dbo].[Cactus] ([Cactus_ID], [Vid], [Proishozhdenie], [Vozrast], [Stoimost], [Instrukciya]) VALUES (19, N'уколм', N'всдылс', 55, 55, N'фвывв')
+GO
+INSERT [dbo].[Cactus] ([Cactus_ID], [Vid], [Proishozhdenie], [Vozrast], [Stoimost], [Instrukciya]) VALUES (22, N'jhvhjv', N'vvvjh', 55, 666, N'hbh')
+GO
+INSERT [dbo].[Cactus] ([Cactus_ID], [Vid], [Proishozhdenie], [Vozrast], [Stoimost], [Instrukciya]) VALUES (24, N'hhvfvhj', N'ncdcd', 55, 66, N'hvh')
+GO
+SET IDENTITY_INSERT [dbo].[Cactus] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Vistavka] ON 
+GO
+INSERT [dbo].[Vistavka] ([Vistavka_ID], [Data], [Mesto], [Nagrada], [Koment]) VALUES (2, CAST(N'2023-05-20' AS Date), N'Мехико, Мексика', N'Лучший редкий кактус', N'Отличная организация')
+GO
+INSERT [dbo].[Vistavka] ([Vistavka_ID], [Data], [Mesto], [Nagrada], [Koment]) VALUES (3, CAST(N'2022-11-10' AS Date), N'Лос-Анджелес, США', N'Первое место в категории экзотических', N'Много участников')
+GO
+INSERT [dbo].[Vistavka] ([Vistavka_ID], [Data], [Mesto], [Nagrada], [Koment]) VALUES (4, CAST(N'2021-09-15' AS Date), N'Феникс, США', N'Награда за оригинальность', N'Интересные экспонаты')
+GO
+INSERT [dbo].[Vistavka] ([Vistavka_ID], [Data], [Mesto], [Nagrada], [Koment]) VALUES (5, CAST(N'2020-07-18' AS Date), N'Берлин, Германия', N'Лучший старый кактус', N'Много коллекционеров')
+GO
+INSERT [dbo].[Vistavka] ([Vistavka_ID], [Data], [Mesto], [Nagrada], [Koment]) VALUES (6, CAST(N'2019-03-12' AS Date), N'Буэнос-Айрес, Аргентина', N'Специальный приз жюри', N'Хороший уровень выставки')
+GO
+INSERT [dbo].[Vistavka] ([Vistavka_ID], [Data], [Mesto], [Nagrada], [Koment]) VALUES (7, CAST(N'2023-06-02' AS Date), N'Токио, Япония', N'Лучший кактус новичка', N'Первая выставка коллекции')
+GO
+INSERT [dbo].[Vistavka] ([Vistavka_ID], [Data], [Mesto], [Nagrada], [Koment]) VALUES (8, CAST(N'2021-10-22' AS Date), N'Лондон, Великобритани', N'Специальный приз за уход', N'Прекрасное оформление')
+GO
+INSERT [dbo].[Vistavka] ([Vistavka_ID], [Data], [Mesto], [Nagrada], [Koment]) VALUES (9, CAST(N'2022-04-15' AS Date), N'Прага, Чехия', N'Награда за экзотический кактус', N'Великолепное мероприятие')
+GO
+INSERT [dbo].[Vistavka] ([Vistavka_ID], [Data], [Mesto], [Nagrada], [Koment]) VALUES (10, CAST(N'2020-12-11' AS Date), N'Сан-Паулу, Бразилия', N'Лучший кактус Южной Америки', N'Отличный уровень коллекций')
+GO
+INSERT [dbo].[Vistavka] ([Vistavka_ID], [Data], [Mesto], [Nagrada], [Koment]) VALUES (12, CAST(N'2024-09-05' AS Date), N'ц', N'олиыбчои', N'лчыт')
+GO
+INSERT [dbo].[Vistavka] ([Vistavka_ID], [Data], [Mesto], [Nagrada], [Koment]) VALUES (14, CAST(N'2024-09-06' AS Date), N'лооув', N'ьир', N'ьт ьт ')
+GO
+INSERT [dbo].[Vistavka] ([Vistavka_ID], [Data], [Mesto], [Nagrada], [Koment]) VALUES (15, CAST(N'2024-09-12' AS Date), N'kbjh', N'hjh', N'jkbkjhb')
+GO
+INSERT [dbo].[Vistavka] ([Vistavka_ID], [Data], [Mesto], [Nagrada], [Koment]) VALUES (16, CAST(N'2024-09-06' AS Date), N'jbkj', N'nbmjggggggggggg', N'mhvhj')
+GO
+INSERT [dbo].[Vistavka] ([Vistavka_ID], [Data], [Mesto], [Nagrada], [Koment]) VALUES (17, CAST(N'2024-09-12' AS Date), N'gchg', N'ncgn', N'nbng')
+GO
+SET IDENTITY_INSERT [dbo].[Vistavka] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Vistavka_Caktusov] ON 
+GO
+INSERT [dbo].[Vistavka_Caktusov] ([Id_Vistavka_Cactusov], [ID_Cactus], [ID_Vistavka]) VALUES (2, 2, 3)
+GO
+INSERT [dbo].[Vistavka_Caktusov] ([Id_Vistavka_Cactusov], [ID_Cactus], [ID_Vistavka]) VALUES (4, 4, 3)
+GO
+INSERT [dbo].[Vistavka_Caktusov] ([Id_Vistavka_Cactusov], [ID_Cactus], [ID_Vistavka]) VALUES (5, 5, 4)
+GO
+INSERT [dbo].[Vistavka_Caktusov] ([Id_Vistavka_Cactusov], [ID_Cactus], [ID_Vistavka]) VALUES (6, 6, 5)
+GO
+INSERT [dbo].[Vistavka_Caktusov] ([Id_Vistavka_Cactusov], [ID_Cactus], [ID_Vistavka]) VALUES (7, 7, 6)
+GO
+INSERT [dbo].[Vistavka_Caktusov] ([Id_Vistavka_Cactusov], [ID_Cactus], [ID_Vistavka]) VALUES (8, 8, 7)
+GO
+INSERT [dbo].[Vistavka_Caktusov] ([Id_Vistavka_Cactusov], [ID_Cactus], [ID_Vistavka]) VALUES (13, 2, 5)
+GO
+INSERT [dbo].[Vistavka_Caktusov] ([Id_Vistavka_Cactusov], [ID_Cactus], [ID_Vistavka]) VALUES (15, 2, 9)
+GO
+INSERT [dbo].[Vistavka_Caktusov] ([Id_Vistavka_Cactusov], [ID_Cactus], [ID_Vistavka]) VALUES (16, 2, 2)
+GO
+INSERT [dbo].[Vistavka_Caktusov] ([Id_Vistavka_Cactusov], [ID_Cactus], [ID_Vistavka]) VALUES (18, 24, 17)
+GO
+SET IDENTITY_INSERT [dbo].[Vistavka_Caktusov] OFF
+GO
+ALTER TABLE [dbo].[Vistavka_Caktusov]  WITH CHECK ADD  CONSTRAINT [FK_Vistavka_Caktusov_Cactus] FOREIGN KEY([ID_Cactus])
+REFERENCES [dbo].[Cactus] ([Cactus_ID])
+GO
+ALTER TABLE [dbo].[Vistavka_Caktusov] CHECK CONSTRAINT [FK_Vistavka_Caktusov_Cactus]
+GO
+ALTER TABLE [dbo].[Vistavka_Caktusov]  WITH CHECK ADD  CONSTRAINT [FK_Vistavka_Caktusov_Vistavka] FOREIGN KEY([ID_Vistavka])
+REFERENCES [dbo].[Vistavka] ([Vistavka_ID])
+GO
+ALTER TABLE [dbo].[Vistavka_Caktusov] CHECK CONSTRAINT [FK_Vistavka_Caktusov_Vistavka]
+GO
+USE [master]
+GO
+ALTER DATABASE [KAKTUS] SET  READ_WRITE 
+GO
