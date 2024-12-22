@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище KAKTUSModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cactus">
+          <Key>
+            <PropertyRef Name="Cactus_ID" />
+          </Key>
+          <Property Name="Cactus_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Vid" Type="nvarchar" MaxLength="50" />
+          <Property Name="Proishozhdenie" Type="nvarchar" MaxLength="50" />
+          <Property Name="Vozrast" Type="int" />
+          <Property Name="Stoimost" Type="int" />
+          <Property Name="Instrukciya" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Vistavka">
+          <Key>
+            <PropertyRef Name="Vistavka_ID" />
+          </Key>
+          <Property Name="Vistavka_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Data" Type="date" />
+          <Property Name="Mesto" Type="nvarchar" MaxLength="50" />
+          <Property Name="Nagrada" Type="nvarchar" MaxLength="50" />
+          <Property Name="Koment" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Vistavka_Caktusov">
+          <Key>
+            <PropertyRef Name="Id_Vistavka_Cactusov" />
+          </Key>
+          <Property Name="Id_Vistavka_Cactusov" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Cactus" Type="int" Nullable="false" />
+          <Property Name="ID_Vistavka" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Vistavka_Caktusov_Cactus">
+          <End Role="Cactus" Type="Self.Cactus" Multiplicity="1" />
+          <End Role="Vistavka_Caktusov" Type="Self.Vistavka_Caktusov" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cactus">
+              <PropertyRef Name="Cactus_ID" />
+            </Principal>
+            <Dependent Role="Vistavka_Caktusov">
+              <PropertyRef Name="ID_Cactus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vistavka_Caktusov_Vistavka">
+          <End Role="Vistavka" Type="Self.Vistavka" Multiplicity="1" />
+          <End Role="Vistavka_Caktusov" Type="Self.Vistavka_Caktusov" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vistavka">
+              <PropertyRef Name="Vistavka_ID" />
+            </Principal>
+            <Dependent Role="Vistavka_Caktusov">
+              <PropertyRef Name="ID_Vistavka" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище KAKTUSModelContainer">
+          <EntitySet Name="Cactus" EntityType="Self.Cactus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vistavka" EntityType="Self.Vistavka" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vistavka_Caktusov" EntityType="Self.Vistavka_Caktusov" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Vistavka_Caktusov_Cactus" Association="Self.FK_Vistavka_Caktusov_Cactus">
+            <End Role="Cactus" EntitySet="Cactus" />
+            <End Role="Vistavka_Caktusov" EntitySet="Vistavka_Caktusov" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vistavka_Caktusov_Vistavka" Association="Self.FK_Vistavka_Caktusov_Vistavka">
+            <End Role="Vistavka" EntitySet="Vistavka" />
+            <End Role="Vistavka_Caktusov" EntitySet="Vistavka_Caktusov" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KAKTUSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cactus">
+          <Key>
+            <PropertyRef Name="Cactus_ID" />
+          </Key>
+          <Property Name="Cactus_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Vid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Proishozhdenie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Vozrast" Type="Int32" />
+          <Property Name="Stoimost" Type="Int32" />
+          <Property Name="Instrukciya" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Vistavka_Caktusov" Relationship="Self.FK_Vistavka_Caktusov_Cactus" FromRole="Cactus" ToRole="Vistavka_Caktusov" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Vistavka">
+          <Key>
+            <PropertyRef Name="Vistavka_ID" />
+          </Key>
+          <Property Name="Vistavka_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Data" Type="DateTime" Precision="0" />
+          <Property Name="Mesto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nagrada" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Koment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Vistavka_Caktusov" Relationship="Self.FK_Vistavka_Caktusov_Vistavka" FromRole="Vistavka" ToRole="Vistavka_Caktusov" />
+        </EntityType>
+        <EntityType Name="Vistavka_Caktusov">
+          <Key>
+            <PropertyRef Name="Id_Vistavka_Cactusov" />
+          </Key>
+          <Property Name="Id_Vistavka_Cactusov" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Cactus" Type="Int32" Nullable="false" />
+          <Property Name="ID_Vistavka" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cactus" Relationship="Self.FK_Vistavka_Caktusov_Cactus" FromRole="Vistavka_Caktusov" ToRole="Cactus" />
+          <NavigationProperty Name="Vistavka" Relationship="Self.FK_Vistavka_Caktusov_Vistavka" FromRole="Vistavka_Caktusov" ToRole="Vistavka" />
+        </EntityType>
+        <Association Name="FK_Vistavka_Caktusov_Cactus">
+          <End Role="Cactus" Type="Self.Cactus" Multiplicity="1" />
+          <End Role="Vistavka_Caktusov" Type="Self.Vistavka_Caktusov" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cactus">
+              <PropertyRef Name="Cactus_ID" />
+            </Principal>
+            <Dependent Role="Vistavka_Caktusov">
+              <PropertyRef Name="ID_Cactus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vistavka_Caktusov_Vistavka">
+          <End Role="Vistavka" Type="Self.Vistavka" Multiplicity="1" />
+          <End Role="Vistavka_Caktusov" Type="Self.Vistavka_Caktusov" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vistavka">
+              <PropertyRef Name="Vistavka_ID" />
+            </Principal>
+            <Dependent Role="Vistavka_Caktusov">
+              <PropertyRef Name="ID_Vistavka" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KAKTUSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cactus" EntityType="Self.Cactus" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Vistavka" EntityType="Self.Vistavka" />
+          <EntitySet Name="Vistavka_Caktusov" EntityType="Self.Vistavka_Caktusov" />
+          <AssociationSet Name="FK_Vistavka_Caktusov_Cactus" Association="Self.FK_Vistavka_Caktusov_Cactus">
+            <End Role="Cactus" EntitySet="Cactus" />
+            <End Role="Vistavka_Caktusov" EntitySet="Vistavka_Caktusov" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vistavka_Caktusov_Vistavka" Association="Self.FK_Vistavka_Caktusov_Vistavka">
+            <End Role="Vistavka" EntitySet="Vistavka" />
+            <End Role="Vistavka_Caktusov" EntitySet="Vistavka_Caktusov" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище KAKTUSModelContainer" CdmEntityContainer="KAKTUSEntities">
+          <EntitySetMapping Name="Cactus">
+            <EntityTypeMapping TypeName="KAKTUSModel.Cactus">
+              <MappingFragment StoreEntitySet="Cactus">
+                <ScalarProperty Name="Cactus_ID" ColumnName="Cactus_ID" />
+                <ScalarProperty Name="Vid" ColumnName="Vid" />
+                <ScalarProperty Name="Proishozhdenie" ColumnName="Proishozhdenie" />
+                <ScalarProperty Name="Vozrast" ColumnName="Vozrast" />
+                <ScalarProperty Name="Stoimost" ColumnName="Stoimost" />
+                <ScalarProperty Name="Instrukciya" ColumnName="Instrukciya" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="KAKTUSModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vistavka">
+            <EntityTypeMapping TypeName="KAKTUSModel.Vistavka">
+              <MappingFragment StoreEntitySet="Vistavka">
+                <ScalarProperty Name="Vistavka_ID" ColumnName="Vistavka_ID" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Mesto" ColumnName="Mesto" />
+                <ScalarProperty Name="Nagrada" ColumnName="Nagrada" />
+                <ScalarProperty Name="Koment" ColumnName="Koment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vistavka_Caktusov">
+            <EntityTypeMapping TypeName="KAKTUSModel.Vistavka_Caktusov">
+              <MappingFragment StoreEntitySet="Vistavka_Caktusov">
+                <ScalarProperty Name="Id_Vistavka_Cactusov" ColumnName="Id_Vistavka_Cactusov" />
+                <ScalarProperty Name="ID_Cactus" ColumnName="ID_Cactus" />
+                <ScalarProperty Name="ID_Vistavka" ColumnName="ID_Vistavka" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

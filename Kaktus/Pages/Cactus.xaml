@@ -1,0 +1,23 @@
+﻿<Page x:Class="Kaktus.Pages.Cactus"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Cacti" Height="400" Width="664">
+    <Grid>
+
+        <DataGrid x:Name="asd" ItemsSource="{Binding Cacti}" SelectedItem="{Binding SelectedCactus}" AutoGenerateColumns="False" Background="Aqua" Margin="0,0,0,119">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Cactus_ID}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Вид" Binding="{Binding Vid}"/>
+                <DataGridTextColumn Header="Происхождение" Binding="{Binding Proishozhdenie}"/>
+                <DataGridTextColumn Header="Возраст" Binding="{Binding Vozrast}"/>
+                <DataGridTextColumn Header="Стоимость" Binding="{Binding Stoimost}"/>
+                <DataGridTextColumn Header="Инструкция" Binding="{Binding Instrukciya}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Добавить" Command="{Binding AddCactusCommand}" Width="150" Height="30" Margin="158,304,0,66" HorizontalAlignment="Left" Background="#FFEC1BB4" Click="AddButton_Click"/>
+        <Button Content="Удалить" Width="150" Height="30" Margin="332,304,0,66" HorizontalAlignment="Left" Click="DeleteButton_Click" Background="#FFEC1BB4"/>
+        <Button Content="Редактировать" Width="150" Height="30" Margin="239,344,0,26" HorizontalAlignment="Left" Click="EditButton_Click" Background="#FFD448FF"></Button>
+        <Button Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30" Margin="516,344,0,0" Click="BackButton_Click" Background="#FF55FFEC"/>
+
+    </Grid>
+</Page>

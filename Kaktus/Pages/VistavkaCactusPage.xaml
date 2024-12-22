@@ -1,0 +1,22 @@
+﻿<Page x:Class="Kaktus.Pages.VistavkaCactusPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Выставка кактусов" Height="400" Width="600">
+    <Grid>
+        <!-- Таблица для отображения выставок кактусов -->
+        <DataGrid x:Name="VistavkaCactiDataGrid" AutoGenerateColumns="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,10,10,50" IsReadOnly="True" SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID Кактуса" Binding="{Binding ID_Cactus}" Width="*"/>
+                <DataGridTextColumn Header="ID Выставки" Binding="{Binding ID_Vistavka}" Width="*"/>
+                <DataGridTextColumn Header="Название кактуса" Binding="{Binding Cactus.Vid}" Width="*"/>
+                <DataGridTextColumn Header="Место выставки" Binding="{Binding Vistavka.Mesto}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Кнопки для управления записями -->
+        <Button Content="Добавить" Width="100" Height="30" HorizontalAlignment="Left" Margin="10,340,0,0" VerticalAlignment="Bottom" Click="AddButton_Click"/>
+        <Button Content="Редактировать" Width="100" Height="30" HorizontalAlignment="Left" Margin="120,340,0,0" VerticalAlignment="Bottom" Click="EditButton_Click"/>
+        <Button Content="Удалить" Width="100" Height="30" HorizontalAlignment="Left" Margin="230,340,0,0" VerticalAlignment="Bottom" Click="DeleteButton_Click"/>
+        <Button Content="Назад" Width="100" Height="30" HorizontalAlignment="Right" Margin="0,340,10,0" VerticalAlignment="Bottom" Click="BackButton_Click"/>
+    </Grid>
+</Page>

@@ -1,0 +1,17 @@
+﻿<Page x:Class="Kaktus.Pages.EditVistavkaCactusPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Редактировать кактус на выставке" Height="300" Width="500">
+    <Grid>
+        <!-- Поля для ввода данных -->
+        <Label Content="ID Кактуса:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,30,0,0"/>
+        <TextBox x:Name="CactusIDTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,30,0,0" Width="200"/>
+
+        <Label Content="ID Выставки:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,70,0,0"/>
+        <TextBox x:Name="VistavkaIDTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,70,0,0" Width="200"/>
+
+        <!-- Кнопки для действий -->
+        <Button Content="Сохранить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30" Margin="30,120,0,0" Click="SaveButton_Click"/>
+        <Button Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="30" Margin="150,120,0,0" Click="BackButton_Click"/>
+    </Grid>
+</Page>
